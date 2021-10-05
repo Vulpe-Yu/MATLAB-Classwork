@@ -1,12 +1,12 @@
-x = [0:0.1:10]; //X軸起點，單位格，終點，相當於給定x矩陣。
-y1 = x./(1.+x).*5; //Y軸數據公式，y1亦為矩陣。
+x = [0:0.1:10]; %X軸起點，單位格，終點，相當於給定x矩陣。
+y1 = x./(1.+x).*5; %Y軸數據公式，y1亦為矩陣。
 y2 = 2*x.*(5./(2.+2*x)).^2;
 y3 = 5./(2.+2*x);
 y4 = 2*x./(2.+2*x);
-plot(x,y1,'r',x,y2,'g',x,y3,'b',x,y4,'y'); //矩陣描點繪出曲線並套色，格式X軸,Y軸,'套色'。
-gtext('Vout'); //曲線標籤。
+plot(x,y1,'r',x,y2,'g',x,y3,'b',x,y4,'y'); %矩陣描點繪出曲線並套色，格式X軸,Y軸,'套色'。
+gtext('Vout'); %曲線標籤。
 gtext('Pout');
 gtext('Current');
 gtext('Pout/Pin');
-xlabel('R2/R1'); //X軸標籤。
-ylabel('Max. Power Transfer Parameters (V,A,W)'); //Y軸標籤。
+xlabel('R2/R1'); %X軸標籤。
+ylabel('Max. Power Transfer Parameters (V,A,W)'); %Y軸標籤。
