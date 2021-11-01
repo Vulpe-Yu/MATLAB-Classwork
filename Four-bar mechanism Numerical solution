@@ -1,0 +1,34 @@
+stick = input('輸入四連桿長[R1 R2 R3 R4]：')
+%得到桿長stick(1)、stick(2)、stick(3)、stick(4)
+trans = pi/180; %度量轉換用，度度量轉弳度量*trans，反之/trans。
+theta2 = input('輸入theta2[初值:增量:終值]：')
+%得到theta2初值、增量、終值。
+thetaInitial = input('輸入[theta3初值 theta4初值]：')
+precision = input('輸入要求精度：')
+epsilon = [1 1]
+for i=1:1:length(theta2) %for i = 初值:增量:終值。
+    if i==1 %theta3、theta4初始估計值，弳度量。
+        theta2p(i) = theta2(i)*trans;
+        theta3p(1) = thetaInitial(1)*trans;
+        theta4p(1) = thetaInitial(2)*trans;
+    else
+        theta2p(i) = theta2(i)*trans;
+        theta3p(i) = theta3p(i-1);
+        theta4p(i) = theta4p(i-1);
+    end
+    
+    while abs(epsilon(1))>precision*trans || abs(epsilon(2))>precision*trans
+        epsilon(1) = stick(2)*cos(theta2p(i))+stick(3)*cos(theta3p(i))-stick(4)*cos(theta4p(i))-stick(1);
+        epsilon(2) = stick(2)*sin(theta2p(i))+stick(3)*sin(theta3p(i))-stick(4)*sin(theta4p(i));
+        delta3 = (epsilon(1)*cos(theta4p(i))+epsilon(2)*sin(theta4p(i)))/(stick(3)*sin(theta3p(i)-theta4p(i)));
+        delta4 = (epsilon(1)*cos(theta3p(i))+epsilon(2)*sin(theta3p(i)))/(stick(4)*sin(theta3p(i)-theta4p(i)));
+        theta3p(i) = theta3p(i)+delta3;
+        theta4p(i) = theta4p(i)+delta4;
+    end
+    epsilon = [1 1]
+    theta3(i)=theta3p(i)/trans;
+    theta4(i)=theta4p(i)/trans;
+end
+plot(theta2,theta3,'r',theta2,theta4,'b'); %矩陣描點繪出曲線並套色，格式X軸,Y軸,'套色'。
+xlabel('theta2'); %X軸標籤。
+ylabel('theta3/theta4 (degree)'); %Y軸標籤。
