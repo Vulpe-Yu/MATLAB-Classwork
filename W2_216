@@ -2,3 +2,5 @@
 %部分分式，R為分子(留數)，P為極點(分母根)，K為直項(整項)
 [R2,P2,K2] = residue([5 10],[1 6 9 0])
 [R3,P3,K3] = residue([5 10],[1 6 34 0])
+
+%residue功能說明：http://bime-matlab.blogspot.com/2006/10/82.html
