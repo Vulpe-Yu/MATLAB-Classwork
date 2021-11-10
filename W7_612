@@ -1,0 +1,11 @@
+Go = tf([0.5],[1 4 4 0.5])
+Gu = tf([2],[1 4 4 2])
+Gc = tf([1.1855],[1 4 4 1.1855])
+Gm = tf([16],[1 4 4 16])
+ltiview(Go,Gu,Gc,Gm)
+
+%對應K值
+%criticaly damp K=1.1855
+%over damped K=2
+%under damp K=0.5
+%marginally stable K=16
