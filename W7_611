@@ -1,0 +1,2 @@
+Gs = tf([1],[1 4 4 0])
+sisotool(Gs) %single input single output，可改變K值求其特性。
