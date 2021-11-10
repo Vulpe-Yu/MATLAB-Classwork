@@ -1,2 +1,9 @@
 Gs = tf([1],[1 4 4 0])
 sisotool(Gs) %single input single output，可改變K值求其特性。
+
+%criticaly damp K=1.1855
+%over damped K=2
+%under damp K=0.5
+%marginally stable K=16
+
+%K越小Damping ratio越大
